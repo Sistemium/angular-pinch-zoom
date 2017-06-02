@@ -124,6 +124,11 @@ angular.module('ngPinchZoom', [])
         transformElement();
 
       } else if (mode === 'pinch') {
+
+        if (touches.length !== 2) {
+          return;
+        }
+
         evt.preventDefault();
 
         distance = getDistance(touches);
