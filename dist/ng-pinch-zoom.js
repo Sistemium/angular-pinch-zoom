@@ -10,7 +10,9 @@ angular.module('ngPinchZoom', [])
 
   var _directive =  {
     restrict : 'A',
-    scope    : false,
+    scope    : {
+      zoomFn: '='
+    },
     link     : _link
   };
 
@@ -70,6 +72,8 @@ angular.module('ngPinchZoom', [])
     } else {
       image.src = attrs.src;
     }
+
+    console.warn(scope.testZoom);
 
     /**
      * @param {object} evt
@@ -209,6 +213,9 @@ angular.module('ngPinchZoom', [])
         '-webkit-transform'  : matrix + ' translate3d(0,0,0)',
         transform            : matrix
       });
+
+      scope.zoomFn && scope.zoomFn(scale);
+
     }
   }
 
