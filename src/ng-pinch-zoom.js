@@ -72,8 +72,6 @@ angular.module('ngPinchZoom', [])
       image.src = attrs.src;
     }
 
-    console.warn(scope.testZoom);
-
     /**
      * @param {object} evt
      */
